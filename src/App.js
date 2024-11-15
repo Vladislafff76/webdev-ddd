@@ -16,12 +16,18 @@ function addTodo() {
   setText('');
 }
 
+function removeLastTodo() {
+  const list = [...todos];
+  list.splice(-1, 1);
+  setTodos(list);
+}
+
 return (
   < div className="App" >
     < h1 >Yaponochka</ h1 >
     < input type='text' value={text} onChange={updateText} />
     <button onClick={addTodo}>Жмяк</button>
-
+    <button onClick={removeLastTodo}>delete</button>
     <ul>
       {todos.map((todo, index)=>(
         <li key={index}>
